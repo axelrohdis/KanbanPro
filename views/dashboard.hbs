@@ -1,0 +1,28 @@
+<h1>Dashboard</h1>
+
+{{#each boards}}
+
+  <h2>{{this.name}}</h2>
+
+  {{#each this.lists}}
+
+    <div style="border:1px solid black; padding:10px; margin:10px;">
+
+      <h3>{{this.name}}</h3>
+
+      <ul>
+        {{#each this.cards}}
+          <li>{{this.title}}</li>
+        {{/each}}
+      </ul>
+
+      <form method="POST" action="/nueva-tarjeta">
+        <input type="text" name="title" placeholder="Nueva tarea" required />
+        <button type="submit">Agregar</button>
+      </form>
+
+    </div>
+
+  {{/each}}
+
+{{/each}}
