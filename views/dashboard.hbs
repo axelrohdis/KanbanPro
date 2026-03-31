@@ -1,22 +1,23 @@
 <h1>Dashboard</h1>
 
-{{#each boards}}
+{{#each tableros}}
 
-  <h2>{{this.name}}</h2>
+  <h2>{{this.titulo}}</h2>
 
-  {{#each this.lists}}
+  {{#each this.Lista}}
 
     <div style="border:1px solid black; padding:10px; margin:10px;">
 
-      <h3>{{this.name}}</h3>
+      <h3>{{this.titulo}}</h3>
 
       <ul>
-        {{#each this.cards}}
-          <li>{{this.title}}</li>
+        {{#each this.Tarjeta}}
+          <li>{{this.titulo}}</li>
         {{/each}}
       </ul>
 
       <form method="POST" action="/nueva-tarjeta">
+        <input type="hidden" name="listaId" value="{{this.id}}" />
         <input type="text" name="title" placeholder="Nueva tarea" required />
         <button type="submit">Agregar</button>
       </form>

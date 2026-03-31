@@ -13,8 +13,8 @@ Tablero.belongsTo(Usuario);
 Tablero.hasMany(Lista);
 Lista.belongsTo(Tablero);
 
-Lista.hasMany(Tarjeta);
-Tarjeta.belongsTo(Lista);
+Lista.hasMany(Tarjeta, { foreignKey: "ListaId" });
+Tarjeta.belongsTo(Lista, { foreignKey: "ListaId" });
 
 module.exports = {
   sequelize,
